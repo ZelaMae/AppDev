@@ -14,9 +14,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<h1>Edit Student</h1>
+<a href="index.php">&larr; Back to List</a>
 <form method="POST">
-    <input type="text" name="name" value="<?= $student['name'] ?>">
-    <input type="email" name="email" value="<?= $student['email'] ?>">
-    <input type="text" name="course" value="<?= $student['course'] ?>">
+    <input type="text" name="name" value="<?= $student['name'] ?>" required>
+    <input type="email" name="email" value="<?= $student['email'] ?>" required>
+    <input type="text" name="course" value="<?= $student['course'] ?>" required>
     <button type="submit">Update</button>
 </form>
+</div>
+</body>
+</html>

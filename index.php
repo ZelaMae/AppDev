@@ -5,6 +5,15 @@ $stmt = $pdo->query("SELECT * FROM students");
 $students = $stmt->fetchAll();
 ?>
 
+<script>
+function deleteItem(id) {
+  if (confirm("Are you sure you want to delete this?")) {
+    // Send delete request to server
+    window.location.href = "delete.php?id=" + id;
+  }
+}
+</script>
+
 <table border="1">
     <tr>
         <th>ID</th><th>Name</th><th>Email</th><th>Course</th><th>Actions</th>
@@ -17,7 +26,7 @@ $students = $stmt->fetchAll();
         <td><?= htmlspecialchars($s['course']) ?></td>
         <td>
             <a href="edit.php?id=<?= $s['id'] ?>">Edit</a>
-            <a href="delete.php?id=<?= $s['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+            <button onclick="deleteItem(<?= $s['id'] ?>)">Delete</button>
         </td>
     </tr>
     <?php endforeach; ?>
